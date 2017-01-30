@@ -8,7 +8,7 @@
 
 namespace Cytec\LogWriterTest;
 
-use Cytec\LogWriter\Slack;
+use Cytec\Log\Writer\Slack;
 use Zend\Log\Logger;
 use Zend\Http\Response;
 use Zend\Http\Request;

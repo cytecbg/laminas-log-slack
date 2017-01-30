@@ -6,7 +6,7 @@
  * @license   https://raw.githubusercontent.com/cytecbg/zend-log-writer-slack/master/LICENSE BSD 3-Clause License
  */
 
-namespace Cytec\LogWriter;
+namespace Cytec\Log\Writer;
 
 use Zend\Http\Client;
 use Zend\Log\Writer\AbstractWriter;

@@ -13,7 +13,7 @@
     "homepage": "https://github.com/cytecbg/zend-log-slack",
     "autoload": {
         "psr-4": {
-            "Cytec\\" : "src/"
+            "Cytec\\Log\\" : "src/Log/"
         }
     },
     "require": {
