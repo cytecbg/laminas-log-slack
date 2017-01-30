@@ -1,16 +1,17 @@
 <?php
 /**
- * Cytec slack log writer
+ * Cytec\Zend slack log
  *
- * @link      https://github.com/cytecbg/zend-log-writer-slack for the source repository
- * @license   https://raw.githubusercontent.com/cytecbg/zend-log-writer-slack/master/LICENSE BSD 3-Clause License
+ * @link      https://github.com/cytecbg/zend-log-slack for the source repository
+ * @license   https://raw.githubusercontent.com/cytecbg/zend-log-slack/master/LICENSE BSD 3-Clause License
  */
 
 namespace Cytec\Log\Writer;
 
 use Zend\Http\Client;
 use Zend\Log\Writer\AbstractWriter;
-use Zend\Log\Formatter\Simple as SimpleFormatter;
+
+use Cytec\Log\Formatter;
 
 class Slack extends AbstractWriter
 {
@@ -75,7 +76,7 @@ class Slack extends AbstractWriter
         }
         
         if ($this->formatter === null) {
-            $this->formatter = new SimpleFormatter();
+            $this->formatter = new Formatter\Slack();
         }
         
         $this->client = new Client($this->webhook_url);
@@ -92,9 +93,13 @@ class Slack extends AbstractWriter
      */
     protected function doWrite(array $event)
     {
-        $line = $this->formatter->format($event);
+        $payload = $this->formatter->format($event);
         
-        $payload = ['text' => $line, 'username' => $this->bot_name];
+        if (is_string($payload)) {
+            $payload = ['text' => $payload];
+        }
+        
+        $payload['username'] = $this->bot_name;
         
         if($this->channel_override) {
             $payload['channel'] = $this->channel_override;

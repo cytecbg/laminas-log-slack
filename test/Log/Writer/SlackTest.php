@@ -1,12 +1,12 @@
 <?php
 /**
- * Zend log writer slack
+ * Cytec\Zend slack log
  *
- * @link      https://github.com/cytecbg/zend-log-writer-slack for the source repository
- * @license   https://raw.githubusercontent.com/cytecbg/zend-log-writer-slack/master/LICENSE BSD 3-Clause License
+ * @link      https://github.com/cytecbg/zend-log-slack for the source repository
+ * @license   https://raw.githubusercontent.com/cytecbg/zend-log-slack/master/LICENSE BSD 3-Clause License
  */
 
-namespace Cytec\LogWriterTest;
+namespace CytecTest\Log\Writer;
 
 use Cytec\Log\Writer\Slack;
 use Zend\Log\Logger;
@@ -51,7 +51,14 @@ class SlackTest extends \PHPUnit_Framework_TestCase
         $writer = new Slack($options);
         $this->logger->addWriter($writer);
         
-        $this->logger->log(Logger::INFO, 'Slack test');
+        $this->logger->log(Logger::INFO, 'Slack test', [
+            'key1' => 'value1',
+            'key2' => 'value2',
+            'key3' => [
+                'subkey1' => 'subvalue1',
+                'subkey2' => 'subvalue2',
+            ]
+        ]);
     }
     
     /**
@@ -59,6 +66,6 @@ class SlackTest extends \PHPUnit_Framework_TestCase
      */
     public function testNoOptions()
     {
-        $writer = new Slack([]);
+        new Slack([]);
     }
 }
