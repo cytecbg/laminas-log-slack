@@ -3,7 +3,9 @@ Write zend-log messages to a slack channel
 
 Installation
 ---
-TODO
+```
+composer require cytec/zend-log-slack
+```
 
 Slack Configuration
 ---
