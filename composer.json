@@ -11,21 +11,20 @@
     "homepage": "https://github.com/cytecbg/zend-log-writer-slack",
     "autoload": {
         "psr-4": {
+            "Cytec\\" : "src/"
         }
     },
     "require": {
-        "php": "^5.6 || ^7.0"
+        "php": "^5.6 || ^7.0",
+        "zendframework/zend-log": "^2.9",
+        "zendframework/zend-http": "^2.5"
     },
     "require-dev": {
+        "phpunit/phpunit": "^4.0 || ^5.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload-dev": {
-        "psr-4": {
-            "ZendTest\\Log\\": "test/"
-        },
-        "files": [
-            "test/Writer/TestAsset/chmod.php"
-        ]
+        
     }
 }
