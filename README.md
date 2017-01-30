@@ -54,7 +54,7 @@ Somewhere in your configuration (eg. config/autoload/global.php) add
                     'webhook_url' => '<YOUR_SLACK_WEBHOOK_URL>',
                     'bot_name' => 'Project Name',   //optional
                     'channel_override' => '#alerts',//optional @person is also supported
-                    'filters' => Logger::CRIT,      //optional - filter by priority
+                    'filters' => \Zend\Log\Logger::CRIT,      //optional - filter by priority
                 ],
             ]
         ],
