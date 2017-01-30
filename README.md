@@ -63,10 +63,12 @@ Somewhere in your configuration (eg. config/autoload/global.php) add
 ...
 ```
 
-And then you can get the logger via service manager:
+And then you can get the logger via the service manager:
 
-    $log = $this->getServiceManager()->get('SlackLog');
-    $log->crit('Critical message');
+```php
+$log = $this->getServiceManager()->get('SlackLog');
+$log->crit('Critical message');
+```
 
 Keep in mind
 ---
