@@ -1,0 +1,31 @@
+{
+    "name": "cytec/zend-log-writer-slack",
+    "description": "Write zend-log messages to a slack channel",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "log",
+        "logging",
+        "slack"
+    ],
+    "homepage": "https://github.com/cytecbg/zend-log-writer-slack",
+    "autoload": {
+        "psr-4": {
+        }
+    },
+    "require": {
+        "php": "^5.6 || ^7.0"
+    },
+    "require-dev": {
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload-dev": {
+        "psr-4": {
+            "ZendTest\\Log\\": "test/"
+        },
+        "files": [
+            "test/Writer/TestAsset/chmod.php"
+        ]
+    }
+}
