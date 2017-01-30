@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend log writer slack
+ * Cytec slack log writer
  *
  * @link      https://github.com/cytecbg/zend-log-writer-slack for the source repository
  * @license   https://raw.githubusercontent.com/cytecbg/zend-log-writer-slack/master/LICENSE BSD 3-Clause License
@@ -70,7 +70,7 @@ class Slack extends AbstractWriter
         $this->channel_override = $channel_override;
         $this->bot_name = $bot_name;
         
-        if(!$this->webhook_url) {
+        if (!$this->webhook_url) {
             throw new \Exception('No webhook url provided');
         }
         
@@ -96,8 +96,7 @@ class Slack extends AbstractWriter
         
         $payload = ['text' => $line, 'username' => $this->bot_name];
         
-        if($this->channel_override)
-        {
+        if($this->channel_override) {
             $payload['channel'] = $this->channel_override;
         }
         
