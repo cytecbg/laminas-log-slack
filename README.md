@@ -55,9 +55,9 @@ Somewhere in your configuration (eg. config/autoload/global.php) add
                     'bot_name' => 'Project Name',   //optional
                     'channel_override' => '#alerts',//optional @person is also supported
                     'filters' => \Zend\Log\Logger::CRIT,      //optional - filter by priority
-                ],
+                ]
             ]
-        ],
+        ]
     ]
 ],
 ...
