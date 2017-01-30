@@ -23,41 +23,45 @@ Usage
 
 ### Manual
 
-    $writer = new \Cytec\Log\Writer\Slack('<YOUR_SLACK_WEBHOOK_URL>');
+```php
+$writer = new \Cytec\Log\Writer\Slack('<YOUR_SLACK_WEBHOOK_URL>');
 
-    //Optional - use this filter only if you want to send critical messages to Slack
-    $writer->addFilter(new \Zend\Log\Filter\Priority(\Zend\Log\Logger::CRIT));
+//Optional - use this filter only if you want to send critical messages to Slack
+$writer->addFilter(new \Zend\Log\Filter\Priority(\Zend\Log\Logger::CRIT));
 
-    $logger = new \Zend\Log\Logger();
-    $logger->addWriter($writer);
+$logger = new \Zend\Log\Logger();
+$logger->addWriter($writer);
 
-    $logger->info('Informational message');
-    $logger->crit('Critical message');
+$logger->info('Informational message');
+$logger->crit('Critical message');
 
-    //second "extra" parameter is supported and printed as properties in slack
-    $logger->crit('Critical message', $_SERVER);
+//second "extra" parameter is supported and printed as properties in slack
+$logger->crit('Critical message', $_SERVER);
+```
 
 ### Via Service manager
 
-Somewhere in your configuration (eg. global.php) add
-    
-    ...
-    'log' => [
-        'SlackLog' => [
-            'writers' => [
-                'default' => [
-                    'name' => 'Cytec\Log\Writer\Slack',
-                    'options' => [
-                        'webhook_url' => '<YOUR_SLACK_WEBHOOK_URL>',
-                        'bot_name' => 'Project Name',   //optional
-                        'channel_override' => '#alerts',//optional @person is also supported
-                        'filters' => Logger::CRIT,      //optional - filter by priority
-                    ],
-                ]
-            ],
-        ]
-    ],
-    ...
+Somewhere in your configuration (eg. config/autoload/global.php) add
+
+```php
+...
+'log' => [
+    'SlackLog' => [
+        'writers' => [
+            'default' => [
+                'name' => 'Cytec\Log\Writer\Slack',
+                'options' => [
+                    'webhook_url' => '<YOUR_SLACK_WEBHOOK_URL>',
+                    'bot_name' => 'Project Name',   //optional
+                    'channel_override' => '#alerts',//optional @person is also supported
+                    'filters' => Logger::CRIT,      //optional - filter by priority
+                ],
+            ]
+        ],
+    ]
+],
+...
+```
 
 And then you can get the logger via service manager:
 
