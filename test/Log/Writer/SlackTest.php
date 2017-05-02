@@ -13,7 +13,7 @@ use Zend\Log\Logger;
 use Zend\Http\Response;
 use Zend\Http\Request;
 
-class SlackTest extends \PHPUnit_Framework_TestCase
+class SlackTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var Logger

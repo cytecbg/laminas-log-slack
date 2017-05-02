@@ -11,7 +11,7 @@ namespace CytecTest\Log\Formatter;
 use Zend\Log\Logger;
 use Cytec\Log\Formatter\Slack;
 
-class SlackTest extends \PHPUnit_Framework_TestCase
+class SlackTest extends \PHPUnit\Framework\TestCase
 {
     public function testFormatting()
     {
