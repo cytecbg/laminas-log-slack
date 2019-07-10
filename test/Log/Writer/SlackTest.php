@@ -23,7 +23,7 @@ class SlackTest extends \PHPUnit\Framework\TestCase
     /**
      * {@inheritDoc}
      */
-    public function setUp()
+    protected function setUp() : void
     {
         $this->logger = new Logger();
     }
