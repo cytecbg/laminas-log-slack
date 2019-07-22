@@ -61,11 +61,10 @@ class SlackTest extends \PHPUnit\Framework\TestCase
         ]);
     }
     
-    /**
-     * @expectedException \Exception
-     */
     public function testNoOptions()
     {
+        $this->expectException(\Exception::class);
+        
         new Slack([]);
     }
 }
