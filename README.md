@@ -1,10 +1,10 @@
-# zend-log-slack
-Write zend-log messages to a slack channel
+# laminas-log-slack
+Write laminas-log messages to a slack channel
 
 Installation
 ---
 ```
-composer require cytec/zend-log-slack
+composer require cytec/laminas-log-slack
 ```
 
 Slack Configuration
@@ -29,9 +29,9 @@ Usage
 $writer = new \Cytec\Log\Writer\Slack('<YOUR_SLACK_WEBHOOK_URL>');
 
 //Optional - use this filter only if you want to send critical messages to Slack
-$writer->addFilter(new \Zend\Log\Filter\Priority(\Zend\Log\Logger::CRIT));
+$writer->addFilter(new \Laminas\Log\Filter\Priority(\Laminas\Log\Logger::CRIT));
 
-$logger = new \Zend\Log\Logger();
+$logger = new \Laminas\Log\Logger();
 $logger->addWriter($writer);
 
 $logger->info('Informational message');
@@ -56,7 +56,7 @@ Somewhere in your configuration (eg. config/autoload/global.php) add
                     'webhook_url' => '<YOUR_SLACK_WEBHOOK_URL>',
                     'bot_name' => 'Project Name',   //optional
                     'channel_override' => '#alerts',//optional @person is also supported
-                    'filters' => \Zend\Log\Logger::CRIT,      //optional - filter by priority
+                    'filters' => \Laminas\Log\Logger::CRIT,      //optional - filter by priority
                 ]
             ]
         ]

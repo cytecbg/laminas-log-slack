@@ -1,10 +1,11 @@
 {
-    "name": "cytec/zend-log-slack",
-    "description": "Write zend-log messages to a slack channel",
+    "name": "cytec/laminas-log-slack",
+    "description": "Write laminas-log messages to a slack channel",
     "license": "BSD-3-Clause",
     "keywords": [
         "zf2",
         "zf3",
+        "laminas",
         "log",
         "logging",
         "writer",
@@ -13,13 +14,13 @@
     "homepage": "https://github.com/cytecbg/zend-log-slack",
     "autoload": {
         "psr-4": {
-            "Cytec\\Log\\" : "src/Log/"
+            "Cytec\\Log\\": "src/Log/"
         }
     },
     "require": {
         "php": "^5.6 || ^7.0",
-        "zendframework/zend-log": "^2.9",
-        "zendframework/zend-http": "^2.5"
+        "laminas/laminas-log": "^2.9",
+        "laminas/laminas-http": "^2.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0"

@@ -8,13 +8,13 @@
 
 namespace Cytec\Log\Formatter;
 
-use Zend\Log\Logger;
-use Zend\Log\Formatter\Base;
+use Laminas\Log\Logger;
+use Laminas\Log\Formatter\Base;
 
 class Slack extends Base
 {
     /**
-     * Maps Zend\Log\Logger priorities to colors
+     * Maps Laminas\Log\Logger priorities to colors
      * 
      * @var array
      */

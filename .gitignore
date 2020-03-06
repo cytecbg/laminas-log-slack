@@ -3,6 +3,7 @@ nbproject
 .idea
 .project
 .settings
+.phpunit.result.cache
 
 composer.lock
 vendor

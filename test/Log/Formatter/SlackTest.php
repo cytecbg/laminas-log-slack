@@ -8,7 +8,7 @@
 
 namespace CytecTest\Log\Formatter;
 
-use Zend\Log\Logger;
+use Laminas\Log\Logger;
 use Cytec\Log\Formatter\Slack;
 
 class SlackTest extends \PHPUnit\Framework\TestCase

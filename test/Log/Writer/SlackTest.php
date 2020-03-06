@@ -9,9 +9,9 @@
 namespace CytecTest\Log\Writer;
 
 use Cytec\Log\Writer\Slack;
-use Zend\Log\Logger;
-use Zend\Http\Response;
-use Zend\Http\Request;
+use Laminas\Log\Logger;
+use Laminas\Http\Response;
+use Laminas\Http\Request;
 
 class SlackTest extends \PHPUnit\Framework\TestCase
 {
@@ -30,8 +30,8 @@ class SlackTest extends \PHPUnit\Framework\TestCase
     
     public function testLogging()
     {
-        /* @var $adapter \PHPUnit_Framework_MockObject_MockObject|\Zend\Http\Client\Adapter\AdapterInterface */
-        $adapter = $this->createMock('Zend\Http\Client\Adapter\AdapterInterface');
+        /* @var $adapter \PHPUnit_Framework_MockObject_MockObject|\Laminas\Http\Client\Adapter\AdapterInterface */
+        $adapter = $this->createMock('Laminas\Http\Client\Adapter\AdapterInterface');
         
         $options = [
             'webhook_url' => 'https://hooks.slack.com/services/non/existent/service/hook',
