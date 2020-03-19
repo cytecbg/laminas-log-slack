@@ -47,7 +47,7 @@ class Slack extends Base
         $color = isset($this->priority_color_map[$event['priority']]) ? $this->priority_color_map[$event['priority']] : '#bababa';
         
         $attachment = [
-            'fallback' => $text,
+            'fallback' => $base_output['message'],
             'text' => $base_output['message'],
             'color' => $color,
             'mrkdwn_in' => ['text'],
