@@ -105,6 +105,10 @@ class Slack extends AbstractWriter
             $payload['channel'] = $this->channel_override;
         }
         
+        if(isset($event['extra']['channel'])) {
+            $payload['channel'] = $event['extra']['channel'];
+        }
+        
         $this->client->setRawBody(json_encode($payload));
         $this->client->send();
     }

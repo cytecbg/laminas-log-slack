@@ -46,26 +46,19 @@ class Slack extends Base
         
         $color = isset($this->priority_color_map[$event['priority']]) ? $this->priority_color_map[$event['priority']] : '#bababa';
         
-        $timestamp = strtotime($base_output['timestamp']);
-        
-        $text = '<!date^'.$timestamp.'^{date_pretty} {time_secs}|'.date('Y-m-d H:i:s', $timestamp).'> Message: *'.$base_output['message'].'*';
-        
         $attachment = [
             'fallback' => $text,
-            'text' => $text,
+            'text' => $base_output['message'],
             'color' => $color,
             'mrkdwn_in' => ['text'],
-            'fields' => [
-                [
-                    'title' => 'Priority',
-                    'value' => $event['priorityName']
-                ]
-            ],
+            'fields' => [],
             'ts' => $event['timestamp']
         ];
         
         foreach($base_output['extra'] as $key=>$value)
         {
+            if($key == 'channel') continue;
+            
             $attachment['fields'][] = [
                 'title' => $key,
                 'value' => $value
