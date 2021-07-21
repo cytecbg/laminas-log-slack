@@ -45,7 +45,7 @@ class Slack extends Base
         $base_output = parent::format($event);
         
         $color = isset($this->priority_color_map[$event['priority']]) ? $this->priority_color_map[$event['priority']] : '#bababa';
-        
+
         $attachment = [
             'fallback' => $base_output['message'],
             'text' => $base_output['message'],
@@ -61,7 +61,7 @@ class Slack extends Base
             
             $attachment['fields'][] = [
                 'title' => $key,
-                'value' => $value
+                'value' => strpos($value, PHP_EOL) !== false ? '```'.$value.'```' : $value
             ];
         }
         
